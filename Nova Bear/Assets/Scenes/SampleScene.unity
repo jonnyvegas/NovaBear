@@ -243,7 +243,7 @@ MonoBehaviour:
   PlayerShip: {fileID: 0}
   PlayerControls: {fileID: -944628639613478452, guid: e0a3668069dacff4ca53ba03dbba8371, type: 3}
   _shipMoveRate: 100
-  xClamp: 12.5
+  xClamp: 15
   yClamp: 12.5
 --- !u!1 &131163335
 GameObject:
