@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _shipMoveRate = 10f;
     // Helps move without creating new Vector3 every frame to help with efficiency and clarity.
     private Vector3 shipMovePosition;
+    private Vector3 clampedPosition;
+    [SerializeField] private float xClamp = 10f;
+    [SerializeField] private float yClamp = 10f;
     private void Awake()
     {
         PlayerControls.Enable();
@@ -33,6 +36,11 @@ public class PlayerMovement : MonoBehaviour
         shipMovePosition.x = _shipMoveRate * _moveShipAction.ReadValue<Vector2>().x * Time.deltaTime;
         shipMovePosition.y = _shipMoveRate * _moveShipAction.ReadValue<Vector2>().y * Time.deltaTime;
         transform.localPosition += shipMovePosition;
+        clampedPosition = transform.localPosition;
+        clampedPosition.x = Mathf.Clamp(clampedPosition.x, -xClamp, xClamp);
+        clampedPosition.y = Mathf.Clamp(clampedPosition.y, -yClamp, yClamp);
+        transform.localPosition = clampedPosition;
+        //Debug.Log("Ship transform: " + transform.localPosition.ToString());
     }
     
     // Current move rate of the ship.
