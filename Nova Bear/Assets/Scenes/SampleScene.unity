@@ -240,6 +240,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1a1c5a9b33ad145be7a64311abd673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  PlayerShip: {fileID: 0}
+  PlayerControls: {fileID: -944628639613478452, guid: e0a3668069dacff4ca53ba03dbba8371, type: 3}
+  _shipMoveRate: 100
 --- !u!1 &131163335
 GameObject:
   m_ObjectHideFlags: 0
