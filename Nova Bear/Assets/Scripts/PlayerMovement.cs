@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 clampedPosition;
     [SerializeField] private float xClamp = 10f;
     [SerializeField] private float yClamp = 10f;
+    [SerializeField] private float rollFactor = 20f;
+
     private void Awake()
     {
         PlayerControls.Enable();
@@ -33,13 +35,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        shipMovePosition.x = _shipMoveRate * _moveShipAction.ReadValue<Vector2>().x * Time.deltaTime;
-        shipMovePosition.y = _shipMoveRate * _moveShipAction.ReadValue<Vector2>().y * Time.deltaTime;
-        transform.localPosition += shipMovePosition;
-        clampedPosition = transform.localPosition;
-        clampedPosition.x = Mathf.Clamp(clampedPosition.x, -xClamp, xClamp);
-        clampedPosition.y = Mathf.Clamp(clampedPosition.y, -yClamp, yClamp);
-        transform.localPosition = clampedPosition;
+        UpdateMovement();
+        UpdateRotation();
         //Debug.Log("Ship transform: " + transform.localPosition.ToString());
     }
     
@@ -55,4 +52,20 @@ public class PlayerMovement : MonoBehaviour
         _shipMoveRate = newRate;
     }
 
+    private void UpdateMovement()
+    {
+        shipMovePosition.x = _shipMoveRate * _moveShipAction.ReadValue<Vector2>().x * Time.deltaTime;
+        shipMovePosition.y = _shipMoveRate * _moveShipAction.ReadValue<Vector2>().y * Time.deltaTime;
+        transform.localPosition += shipMovePosition;
+        clampedPosition = transform.localPosition;
+        clampedPosition.x = Mathf.Clamp(clampedPosition.x, -xClamp, xClamp);
+        clampedPosition.y = Mathf.Clamp(clampedPosition.y, -yClamp, yClamp);
+        transform.localPosition = clampedPosition;
+    }
+
+    private void UpdateRotation()
+    {
+        Quaternion targetRot = Quaternion.Euler(0f, 0f, -rollFactor * _moveShipAction.ReadValue<Vector2>().x);
+        transform.localRotation = targetRot;
+    }
 }
