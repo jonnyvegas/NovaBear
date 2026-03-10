@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 110812088}
   - component: {fileID: 110812089}
   - component: {fileID: 110812090}
+  - component: {fileID: 110812091}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Untagged
@@ -241,14 +242,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1a1c5a9b33ad145be7a64311abd673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  PlayerShip: {fileID: 0}
-  PlayerControls: {fileID: -944628639613478452, guid: e0a3668069dacff4ca53ba03dbba8371, type: 3}
+  _playerShip: {fileID: 110812087}
+  _playerControls: {fileID: -944628639613478452, guid: e0a3668069dacff4ca53ba03dbba8371, type: 3}
   _shipMoveRate: 100
-  xClamp: 15
-  yClamp: 12.5
-  rollFactor: 20
-  rotationRate: 10
-  pitchFactor: 10
+  _xClamp: 10
+  _yClamp: 10
+  _rollFactor: 20
+  _rotationRate: 5
+  _pitchFactor: 10
+--- !u!114 &110812091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110812087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573f49f4e5be0a94e82cce6ea77826d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerWeapon
+  _weaponParticleSystem: {fileID: 972048206}
+  _playerControls: {fileID: -944628639613478452, guid: e0a3668069dacff4ca53ba03dbba8371, type: 3}
 --- !u!1 &131163335
 GameObject:
   m_ObjectHideFlags: 0

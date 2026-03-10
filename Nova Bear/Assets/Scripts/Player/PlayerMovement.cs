@@ -6,28 +6,28 @@ public class PlayerMovement : MonoBehaviour
 {
     // Only needed if not attached to player ship. In that case, set this to the
     // player ship object.
-    [SerializeField] private GameObject PlayerShip;
+    [SerializeField] private GameObject _playerShip;
     // Controls used for ship.
-    [SerializeField] private InputActionAsset PlayerControls;
+    [SerializeField] private InputActionAsset _playerControls;
     // Helper to get the Player actions.
     private InputAction _moveShipAction;
     // How fast thie ship moves.
     [SerializeField] private float _shipMoveRate = 10f;
     // Helps move without creating new Vector3 every frame to help with efficiency and clarity.
-    private Vector3 shipMovePosition;
-    private Vector3 clampedPosition;
-    [SerializeField] private float xClamp = 10f;
-    [SerializeField] private float yClamp = 10f;
-    [SerializeField] private float rollFactor = 20f;
-    [SerializeField] private float rotationRate = 5.0f;
-    [SerializeField] private float pitchFactor = 10f;
+    private Vector3 _shipMovePosition;
+    private Vector3 _clampedPosition;
+    [SerializeField] private float _xClamp = 10f;
+    [SerializeField] private float _yClamp = 10f;
+    [SerializeField] private float _rollFactor = 20f;
+    [SerializeField] private float _rotationRate = 5.0f;
+    [SerializeField] private float _pitchFactor = 10f;
     //[SerializeField] private float pitchRate = 5.0f;
 
     private void Awake()
     {
-        PlayerControls.Enable();
-        _moveShipAction = PlayerControls.FindActionMap("Player")["Move"];
-        shipMovePosition = Vector3.zero;
+        _playerControls.Enable();
+        _moveShipAction = _playerControls.FindActionMap("Player")["Move"];
+        _shipMovePosition = Vector3.zero;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -57,21 +57,21 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateMovement()
     {
-        shipMovePosition.x = _shipMoveRate * _moveShipAction.ReadValue<Vector2>().x * Time.deltaTime;
-        shipMovePosition.y = _shipMoveRate * _moveShipAction.ReadValue<Vector2>().y * Time.deltaTime;
-        transform.localPosition += shipMovePosition;
-        clampedPosition = transform.localPosition;
-        clampedPosition.x = Mathf.Clamp(clampedPosition.x, -xClamp, xClamp);
-        clampedPosition.y = Mathf.Clamp(clampedPosition.y, -yClamp, yClamp);
-        transform.localPosition = clampedPosition;
+        _shipMovePosition.x = _shipMoveRate * _moveShipAction.ReadValue<Vector2>().x * Time.deltaTime;
+        _shipMovePosition.y = _shipMoveRate * _moveShipAction.ReadValue<Vector2>().y * Time.deltaTime;
+        transform.localPosition += _shipMovePosition;
+        _clampedPosition = transform.localPosition;
+        _clampedPosition.x = Mathf.Clamp(_clampedPosition.x, -_xClamp, _xClamp);
+        _clampedPosition.y = Mathf.Clamp(_clampedPosition.y, -_yClamp, _yClamp);
+        transform.localPosition = _clampedPosition;
     }
 
     private void UpdateRotation()
     {
-        Quaternion targetRot = Quaternion.Euler(pitchFactor * _moveShipAction.ReadValue<Vector2>().y,
+        Quaternion targetRot = Quaternion.Euler(_pitchFactor * _moveShipAction.ReadValue<Vector2>().y,
                                                 0f, 
-                                                -rollFactor * _moveShipAction.ReadValue<Vector2>().x);
-        targetRot = Quaternion.Lerp(transform.localRotation, targetRot, rotationRate * Time.deltaTime);
+                                                -_rollFactor * _moveShipAction.ReadValue<Vector2>().x);
+        targetRot = Quaternion.Lerp(transform.localRotation, targetRot, _rotationRate * Time.deltaTime);
         //    Quaternion.Euler(0f, 0f, -rollFactor * _moveShipAction.ReadValue<Vector2>().x);
         // Always make sure local for this, transform.rotation rotates
         // in world space and won't give desired results KEKW
