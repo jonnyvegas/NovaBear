@@ -19,7 +19,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float xClamp = 10f;
     [SerializeField] private float yClamp = 10f;
     [SerializeField] private float rollFactor = 20f;
-    [SerializeField] private float rollRate = 5.0f;
+    [SerializeField] private float rotationRate = 5.0f;
+    [SerializeField] private float pitchFactor = 10f;
+    //[SerializeField] private float pitchRate = 5.0f;
 
     private void Awake()
     {
@@ -66,8 +68,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateRotation()
     {
-        Quaternion targetRot = Quaternion.Euler(0f, 0f, -rollFactor * _moveShipAction.ReadValue<Vector2>().x);
-        targetRot = Quaternion.Lerp(transform.localRotation, targetRot, rollRate * Time.deltaTime);
+        Quaternion targetRot = Quaternion.Euler(pitchFactor * _moveShipAction.ReadValue<Vector2>().y,
+                                                0f, 
+                                                -rollFactor * _moveShipAction.ReadValue<Vector2>().x);
+        targetRot = Quaternion.Lerp(transform.localRotation, targetRot, rotationRate * Time.deltaTime);
         //    Quaternion.Euler(0f, 0f, -rollFactor * _moveShipAction.ReadValue<Vector2>().x);
         // Always make sure local for this, transform.rotation rotates
         // in world space and won't give desired results KEKW
