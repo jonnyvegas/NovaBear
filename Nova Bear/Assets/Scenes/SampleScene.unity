@@ -246,6 +246,7 @@ MonoBehaviour:
   xClamp: 15
   yClamp: 12.5
   rollFactor: 20
+  rollRate: 10
 --- !u!1 &131163335
 GameObject:
   m_ObjectHideFlags: 0
