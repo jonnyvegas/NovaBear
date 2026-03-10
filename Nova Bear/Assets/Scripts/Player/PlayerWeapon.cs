@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerWeapon : MonoBehaviour
 {
-    [SerializeField] private ParticleSystem _weaponParticleSystem;
+    [SerializeField] private ParticleSystem[] _weaponParticleSystems;
     // Controls used for ship.
     [SerializeField] private InputActionAsset _playerControls;
     private InputAction _fireAction;
@@ -11,13 +11,14 @@ public class PlayerWeapon : MonoBehaviour
 
     private void Awake()
     {
+        _isFiring = false;
         // singleton style KEKW, only works if there's 1 particle system though,
         // which is why we serialized the field to be set.
-        if(!_weaponParticleSystem)
+        //_weaponParticleSystems = GetComponents<ParticleSystem>();
+        foreach (ParticleSystem particleSys in _weaponParticleSystems)
         {
-            _weaponParticleSystem = GetComponent<ParticleSystem>();
+            particleSys.Stop();
         }
-        _weaponParticleSystem.Stop();
         if(_playerControls )
         {
             if (!_playerControls.enabled)
@@ -59,16 +60,21 @@ public class PlayerWeapon : MonoBehaviour
     // Fires or stops firing the weapon.
     void FireWeapon(bool fire)
     {
-        if(_weaponParticleSystem)
+
+        if (fire)
         {
-            if(fire)
+            foreach (ParticleSystem particleSys in _weaponParticleSystems)
             {
-                _weaponParticleSystem.Play();
-            }
-            else
-            {
-                _weaponParticleSystem.Stop();
+                particleSys.Play();
             }
         }
+        else
+        {
+            foreach (ParticleSystem particleSys in _weaponParticleSystems)
+            {
+                particleSys.Stop();
+            }
+        }
+
     }
 }
