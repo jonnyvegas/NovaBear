@@ -9,6 +9,8 @@ public class PlayerWeapon : MonoBehaviour
     private InputAction _fireAction;
     private bool _isFiring = false;
 
+    [SerializeField] private RectTransform _crosshairTransform;
+
     private void Awake()
     {
         _isFiring = false;
@@ -32,29 +34,14 @@ public class PlayerWeapon : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_fireAction.IsPressed())
-        {
-            // acts as a do-once.
-            if(!_isFiring)
-            {
-                _isFiring = true;
-                FireWeapon(_isFiring);
-            }
-        }
-        else
-        {
-            if(_isFiring)
-            {
-                _isFiring = false;
-                FireWeapon(_isFiring);
-            }
-        }
+        UpdateFire();
+        UpdateCrosshair();
     }
     
     // Fires or stops firing the weapon.
@@ -76,5 +63,31 @@ public class PlayerWeapon : MonoBehaviour
             }
         }
 
+    }
+
+    private void UpdateFire()
+    {
+        if (_fireAction.IsPressed())
+        {
+            // acts as a do-once.
+            if (!_isFiring)
+            {
+                _isFiring = true;
+                FireWeapon(_isFiring);
+            }
+        }
+        else
+        {
+            if (_isFiring)
+            {
+                _isFiring = false;
+                FireWeapon(_isFiring);
+            }
+        }
+    }
+
+    private void UpdateCrosshair()
+    {
+        _crosshairTransform.position = Mouse.current.position.ReadValue();//Input.mousePosition;
     }
 }
