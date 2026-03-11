@@ -4,17 +4,30 @@ using UnityEngine.InputSystem;
 
 public class PlayerWeapon : MonoBehaviour
 {
+    // Freakin' laser beams!
     [SerializeField] private ParticleSystem[] _weaponParticleSystems;
     // Controls used for ship.
     [SerializeField] private InputActionAsset _playerControls;
+    // Helper for the actual firing action.
     private InputAction _fireAction;
+    // Helper for firing.
     private bool _isFiring = false;
 
+    // Crosshair transform on 2D canvas.
     [SerializeField] private RectTransform _crosshairTransform;
 
+    // Where the crosshair and lasers will point.
     [SerializeField] private GameObject _crosshairTarget;
+
+    // Helper for target position.
     private Vector3 _crosshairPosCache;
+    
+    // How far in front do we want to aim?
     [SerializeField] private float _targetDistance;
+
+    // Helpers for the results of looking at the target w/ the lasers.
+    private Vector3 _targetLookAtResult;
+    private Quaternion _targetLookAtRot;
 
     private void Awake()
     {
@@ -36,6 +49,8 @@ public class PlayerWeapon : MonoBehaviour
         }
         _crosshairPosCache = Vector3.zero;
         _crosshairPosCache.z = _targetDistance;
+        _targetLookAtResult = Vector3.zero;
+        _targetLookAtRot = Quaternion.identity;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -49,6 +64,7 @@ public class PlayerWeapon : MonoBehaviour
     {
         UpdateFire();
         UpdateCrosshair();
+        AimLasers();
     }
     
     // Fires or stops firing the weapon.
@@ -101,6 +117,16 @@ public class PlayerWeapon : MonoBehaviour
             _crosshairPosCache.y = Mouse.current.position.ReadValue().y;
             _crosshairTarget.transform.position = Camera.main.ScreenToWorldPoint(_crosshairPosCache);
             _crosshairTransform.position = Mouse.current.position.ReadValue();
+        }
+    }
+
+    private void AimLasers()
+    {
+        foreach (ParticleSystem particleSys in _weaponParticleSystems)
+        {
+            _targetLookAtResult = (_crosshairTarget.transform.position - particleSys.transform.position).normalized;
+            _targetLookAtRot = Quaternion.LookRotation(_targetLookAtResult);
+            particleSys.transform.rotation = _targetLookAtRot;
         }
     }
 }
