@@ -1,3 +1,4 @@
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +11,10 @@ public class PlayerWeapon : MonoBehaviour
     private bool _isFiring = false;
 
     [SerializeField] private RectTransform _crosshairTransform;
+
+    [SerializeField] private GameObject _crosshairTarget;
+    private Vector3 _crosshairPosCache;
+    [SerializeField] private float _targetDistance;
 
     private void Awake()
     {
@@ -29,6 +34,8 @@ public class PlayerWeapon : MonoBehaviour
             }
             _fireAction = _playerControls.FindActionMap("Player")["Fire"];
         }
+        _crosshairPosCache = Vector3.zero;
+        _crosshairPosCache.z = _targetDistance;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -88,6 +95,12 @@ public class PlayerWeapon : MonoBehaviour
 
     private void UpdateCrosshair()
     {
-        _crosshairTransform.position = Mouse.current.position.ReadValue();//Input.mousePosition;
+        if (_crosshairTransform && _crosshairTarget)
+        {
+            _crosshairPosCache.x = Mouse.current.position.ReadValue().x;
+            _crosshairPosCache.y = Mouse.current.position.ReadValue().y;
+            _crosshairTarget.transform.position = Camera.main.ScreenToWorldPoint(_crosshairPosCache);
+            _crosshairTransform.position = Mouse.current.position.ReadValue();
+        }
     }
 }
