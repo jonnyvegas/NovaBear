@@ -1,7 +1,6 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class CollisionHandler : MonoBehaviour
+public class LaserCollisionHandler : CollisionHandler
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,14 +14,18 @@ public class CollisionHandler : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnParticleCollision(GameObject other)
     {
         //Debug.Log(this.gameObject.name + " collided with " + other.gameObject.name);
+        CollisionHandler ch = other.GetComponent<CollisionHandler>();
+        if (ch)
+        {
+            ch.HandleCollision(this.gameObject);
+        }
     }
 
-    public virtual void HandleCollision(GameObject other)
+    public override void HandleCollision(GameObject other)
     {
-        // nothing, abstraction.
+        // do nothing for now.
     }
-    
 }
