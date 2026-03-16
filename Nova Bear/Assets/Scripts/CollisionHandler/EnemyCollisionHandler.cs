@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EnemyCollisionHandler : CollisionHandler
 {
+    [SerializeField] private GameObject explosionParticleSys;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,5 +19,11 @@ public class EnemyCollisionHandler : CollisionHandler
     {
         base.HandleCollision(other);
         Debug.Log("Hit an enemy");
+        if(explosionParticleSys)
+        {
+            Debug.Log("Should instantiate");
+            Instantiate(explosionParticleSys, transform.position, explosionParticleSys.transform.rotation);
+            Destroy(this.gameObject);
+        }
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private CollisionHandler collisionHandler;
+    [SerializeField] private CollisionHandler collisionHandler;
     private void Awake()
     {
         collisionHandler = gameObject.AddComponent<EnemyCollisionHandler>();
