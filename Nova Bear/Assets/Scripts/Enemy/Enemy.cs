@@ -1,7 +1,12 @@
 using UnityEngine;
 
-public class EnemyCollisionHandler : CollisionHandler
+public class Enemy : MonoBehaviour
 {
+    private CollisionHandler collisionHandler;
+    private void Awake()
+    {
+        collisionHandler = gameObject.AddComponent<EnemyCollisionHandler>();
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -12,10 +17,5 @@ public class EnemyCollisionHandler : CollisionHandler
     void Update()
     {
         
-    }
-
-    public override void HandleCollision(GameObject other)
-    {
-        Debug.Log("Hit an enemy");
     }
 }

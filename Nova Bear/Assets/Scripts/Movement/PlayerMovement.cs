@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.Rendering.DebugUI;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : Movement
 {
     // Only needed if not attached to player ship. In that case, set this to the
     // player ship object.
@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _pitchFactor = 10f;
     //[SerializeField] private float pitchRate = 5.0f;
 
+    private float deltaTime = 0f;
+
     private void Awake()
     {
         _playerControls.Enable();
@@ -38,8 +40,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateMovement();
-        UpdateRotation();
+        // parse it once.
+        deltaTime = Time.deltaTime;
+        UpdateMovement(deltaTime);
+        UpdateRotation(deltaTime);
         //Debug.Log("Ship transform: " + transform.localPosition.ToString());
     }
     
@@ -55,26 +59,26 @@ public class PlayerMovement : MonoBehaviour
         _shipMoveRate = newRate;
     }
 
-    private void UpdateMovement()
+    public override void UpdateMovement(float deltaTime)
     {
-        _shipMovePosition.x = _shipMoveRate * _moveShipAction.ReadValue<Vector2>().x * Time.deltaTime;
-        _shipMovePosition.y = _shipMoveRate * _moveShipAction.ReadValue<Vector2>().y * Time.deltaTime;
-        transform.localPosition += _shipMovePosition;
-        _clampedPosition = transform.localPosition;
+        _shipMovePosition.x = _shipMoveRate * _moveShipAction.ReadValue<Vector2>().x * deltaTime;
+        _shipMovePosition.y = _shipMoveRate * _moveShipAction.ReadValue<Vector2>().y * deltaTime;
+        _playerShip.transform.localPosition += _shipMovePosition;
+        _clampedPosition = _playerShip.transform.localPosition;
         _clampedPosition.x = Mathf.Clamp(_clampedPosition.x, -_xClamp, _xClamp);
         _clampedPosition.y = Mathf.Clamp(_clampedPosition.y, -_yClamp, _yClamp);
-        transform.localPosition = _clampedPosition;
+        _playerShip.transform.localPosition = _clampedPosition;
     }
 
-    private void UpdateRotation()
+    private void UpdateRotation(float deltaTime)
     {
         Quaternion targetRot = Quaternion.Euler(_pitchFactor * _moveShipAction.ReadValue<Vector2>().y,
                                                 0f, 
                                                 -_rollFactor * _moveShipAction.ReadValue<Vector2>().x);
-        targetRot = Quaternion.Lerp(transform.localRotation, targetRot, _rotationRate * Time.deltaTime);
+        targetRot = Quaternion.Lerp(_playerShip.transform.localRotation, targetRot, _rotationRate * deltaTime);
         //    Quaternion.Euler(0f, 0f, -rollFactor * _moveShipAction.ReadValue<Vector2>().x);
         // Always make sure local for this, transform.rotation rotates
         // in world space and won't give desired results KEKW
-        transform.localRotation = targetRot;
+        _playerShip.transform.localRotation = targetRot;
     }
 }

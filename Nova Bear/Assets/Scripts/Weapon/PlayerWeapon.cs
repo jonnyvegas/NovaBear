@@ -2,7 +2,7 @@ using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerWeapon : MonoBehaviour
+public class PlayerWeapon : Weapon
 {
     // Freakin' laser beams!
     [SerializeField] private ParticleSystem[] _weaponParticleSystems;
@@ -96,7 +96,7 @@ public class PlayerWeapon : MonoBehaviour
             if (!_isFiring)
             {
                 _isFiring = true;
-                FireWeapon(_isFiring);
+                UseWeapon(_isFiring);
             }
         }
         else
@@ -104,7 +104,7 @@ public class PlayerWeapon : MonoBehaviour
             if (_isFiring)
             {
                 _isFiring = false;
-                FireWeapon(_isFiring);
+                UseWeapon(_isFiring);
             }
         }
     }
@@ -128,5 +128,10 @@ public class PlayerWeapon : MonoBehaviour
             _targetLookAtRot = Quaternion.LookRotation(_targetLookAtResult);
             particleSys.transform.rotation = _targetLookAtRot;
         }
+    }
+
+    public override void UseWeapon(bool bFire)
+    {
+        FireWeapon(bFire);
     }
 }

@@ -10,6 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8343131532257379210}
   - component: {fileID: 7231915902217537977}
+  - component: {fileID: 9081321972938426191}
+  - component: {fileID: 524302779578667239}
+  - component: {fileID: 4393156742362040435}
+  - component: {fileID: 3160785044585243761}
   m_Layer: 0
   m_Name: PlayerRig
   m_TagString: Untagged
@@ -57,6 +61,72 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9081321972938426191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417700452302481761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a466fb765750e6d4c921646b02283204, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
+  weapon: {fileID: 4393156742362040435}
+  movement: {fileID: 524302779578667239}
+  collisionHandler: {fileID: 3160785044585243761}
+--- !u!114 &524302779578667239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417700452302481761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e1a1c5a9b33ad145be7a64311abd673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  _playerShip: {fileID: 2565811529656738563}
+  _playerControls: {fileID: -944628639613478452, guid: e0a3668069dacff4ca53ba03dbba8371, type: 3}
+  _shipMoveRate: 10
+  _xClamp: 10
+  _yClamp: 10
+  _rollFactor: 20
+  _rotationRate: 5
+  _pitchFactor: 10
+--- !u!114 &4393156742362040435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417700452302481761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573f49f4e5be0a94e82cce6ea77826d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerWeapon
+  _weaponParticleSystems:
+  - {fileID: 4065331553552411772}
+  - {fileID: 1193476244009819284}
+  _playerControls: {fileID: -944628639613478452, guid: e0a3668069dacff4ca53ba03dbba8371, type: 3}
+  _crosshairTransform: {fileID: 0}
+  _crosshairTarget: {fileID: 1363229165819289096}
+  _targetDistance: 300
+--- !u!114 &3160785044585243761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417700452302481761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 832845b94623db94580c2c2f48d65bb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCollisionHandler
 --- !u!1 &1363229165819289096
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,11 +168,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4504604951578574638}
   - component: {fileID: 3969128835762569983}
-  - component: {fileID: 3589478746976738812}
-  - component: {fileID: 1493683347074284997}
   - component: {fileID: 5204299777630996624}
   - component: {fileID: 6286702274757852879}
-  - component: {fileID: 778149254978452535}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Untagged
@@ -158,45 +225,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &3589478746976738812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2565811529656738563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e1a1c5a9b33ad145be7a64311abd673, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  _playerShip: {fileID: 2565811529656738563}
-  _playerControls: {fileID: -944628639613478452, guid: e0a3668069dacff4ca53ba03dbba8371, type: 3}
-  _shipMoveRate: 100
-  _xClamp: 10
-  _yClamp: 10
-  _rollFactor: 20
-  _rotationRate: 5
-  _pitchFactor: 10
---- !u!114 &1493683347074284997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2565811529656738563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 573f49f4e5be0a94e82cce6ea77826d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerWeapon
-  _weaponParticleSystems:
-  - {fileID: 4065331553552411772}
-  - {fileID: 1193476244009819284}
-  _playerControls: {fileID: -944628639613478452, guid: e0a3668069dacff4ca53ba03dbba8371, type: 3}
-  _crosshairTransform: {fileID: 0}
-  _crosshairTarget: {fileID: 1363229165819289096}
-  _targetDistance: 0
 --- !u!65 &5204299777630996624
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -245,18 +273,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &778149254978452535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2565811529656738563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31786d3391948e442b458636c0b2a13b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CollisionHandler
 --- !u!1 &3403290652931617271
 GameObject:
   m_ObjectHideFlags: 0

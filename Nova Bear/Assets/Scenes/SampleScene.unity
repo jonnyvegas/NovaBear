@@ -451,7 +451,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.98421, y: 11.936792, z: 14.434269}
   m_Center: {x: -0.09256088, y: 4.865905, z: 0.24394676}
---- !u!114 &556754591
+--- !u!114 &556754588
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -460,9 +460,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 556754586}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57add06a80aee90488efc4922aaa7afc, type: 3}
+  m_Script: {fileID: 11500000, guid: 0cd62503ab1bea141bf9085142bfd38f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyCollisionHandler
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
 --- !u!1 &698996341
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,7 +812,7 @@ PrefabInstance:
       addedObject: {fileID: 556754587}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7708d606d16e7df4bb5fc68fc20ea46a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 556754591}
+      addedObject: {fileID: 556754588}
   m_SourcePrefab: {fileID: 100100000, guid: 7708d606d16e7df4bb5fc68fc20ea46a, type: 3}
 --- !u!4 &1219510111 stripped
 Transform:
@@ -1061,6 +1061,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerRig
       objectReference: {fileID: 0}
+    - target: {fileID: 524302779578667239, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
+      propertyPath: _rotationRate
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 524302779578667239, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
+      propertyPath: _shipMoveRate
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1493683347074284997, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
       propertyPath: _targetDistance
       value: 500
@@ -1073,6 +1081,14 @@ PrefabInstance:
       propertyPath: _weaponParticleSystems.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4393156742362040435, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
+      propertyPath: _targetDistance
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4393156742362040435, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
+      propertyPath: _crosshairTransform
+      value: 
+      objectReference: {fileID: 950143427}
     - target: {fileID: 7925652438976368008, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
       propertyPath: m_LocalScale.x
       value: 5

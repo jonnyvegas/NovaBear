@@ -15,7 +15,7 @@ public class CollisionHandler : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    public virtual void HandleTriggerEnter(Collider other)
     {
         //Debug.Log(this.gameObject.name + " collided with " + other.gameObject.name);
     }
