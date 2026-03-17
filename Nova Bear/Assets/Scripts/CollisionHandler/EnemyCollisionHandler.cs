@@ -15,15 +15,31 @@ public class EnemyCollisionHandler : CollisionHandler
         
     }
 
-    public override void HandleCollision(GameObject other)
+    public override void HandleCollision(Collider other)
     {
         base.HandleCollision(other);
-        Debug.Log("Hit an enemy");
-        if(explosionParticleSys)
+        //Debug.Log("Hit an enemy");
+        DestroyAndSpawnVFX();
+    }
+
+    public override void HandleTriggerEnter(Collider other)
+    {
+        base.HandleTriggerEnter(other);
+        //Debug.Log("blow up?");
+        other.transform.root.TryGetComponent<CollisionHandler>(out CollisionHandler ch);
+        if (ch)
         {
-            Debug.Log("Should instantiate");
-            Instantiate(explosionParticleSys, transform.position, explosionParticleSys.transform.rotation);
-            Destroy(this.gameObject);
+            ch.HandleTriggerEnter(this.GetComponent<Collider>());
         }
+        DestroyAndSpawnVFX();
+    }
+
+    private void DestroyAndSpawnVFX()
+    {
+        if (explosionParticleSys)
+        {
+            Instantiate(explosionParticleSys, transform.position, Quaternion.identity);
+        }
+        Destroy(this.gameObject);
     }
 }

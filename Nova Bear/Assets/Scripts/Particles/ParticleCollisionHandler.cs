@@ -18,13 +18,22 @@ public class LaserCollisionHandler : CollisionHandler
     {
         //Debug.Log(this.gameObject.name + " collided with " + other.gameObject.name);
         CollisionHandler ch = other.GetComponent<CollisionHandler>();
+        
         if (ch)
         {
-            ch.HandleCollision(this.gameObject);
+            Collider collider = other.gameObject.GetComponent<Collider>();
+            if (collider)
+            {
+                ch.HandleCollision(collider);
+            }
+            else
+            {
+                ch.HandleCollision(other);
+            }
         }
     }
 
-    public override void HandleCollision(GameObject other)
+    public override void HandleCollision(Collider other)
     {
         // do nothing for now.
     }

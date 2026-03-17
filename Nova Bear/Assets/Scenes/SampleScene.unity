@@ -476,7 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57add06a80aee90488efc4922aaa7afc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCollisionHandler
-  explosionParticleSys: {fileID: 7552413788897276663, guid: 0b6545ec3148c2041aa8d50504b517f5, type: 3}
+  explosionParticleSys: {fileID: 7174742586812942305, guid: a6312bf381fbcfe4ea1c17f0803f1a3f, type: 3}
 --- !u!1 &698996341
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,15 +771,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7708d606d16e7df4bb5fc68fc20ea46a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 276.6
+      value: 305.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7708d606d16e7df4bb5fc68fc20ea46a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 36.51
+      value: 11.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7708d606d16e7df4bb5fc68fc20ea46a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 394.7
+      value: 355.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7708d606d16e7df4bb5fc68fc20ea46a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1074,6 +1074,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 186567972580044375, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 186567972580044375, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 186567972580044375, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 417700452302481761, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
       propertyPath: m_Name
       value: PlayerRig
@@ -1085,6 +1097,18 @@ PrefabInstance:
     - target: {fileID: 524302779578667239, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
       propertyPath: _shipMoveRate
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328057329234180221, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328057329234180221, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328057329234180221, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1493683347074284997, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
       propertyPath: _targetDistance
@@ -1098,6 +1122,10 @@ PrefabInstance:
       propertyPath: _weaponParticleSystems.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3160785044585243761, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
+      propertyPath: explosionParticle
+      value: 
+      objectReference: {fileID: 5108117917362080907, guid: eb2778f941c6a2e4d8241ec9b27e6a67, type: 3}
     - target: {fileID: 4393156742362040435, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
       propertyPath: _targetDistance
       value: 300
