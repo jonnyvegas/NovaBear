@@ -1021,9 +1021,17 @@ PrefabInstance:
       value: PlayerRig
       objectReference: {fileID: 0}
     - target: {fileID: 524302779578667239, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
+      propertyPath: yClamp
+      value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 524302779578667239, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
       propertyPath: playerShip
       value: 
       objectReference: {fileID: 1141207388}
+    - target: {fileID: 524302779578667239, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
+      propertyPath: cameraOffset
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 524302779578667239, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
       propertyPath: shipMoveRate
       value: 50
@@ -1042,15 +1050,31 @@ PrefabInstance:
       objectReference: {fileID: -944628639613478452, guid: e0a3668069dacff4ca53ba03dbba8371, type: 3}
     - target: {fileID: 1328057329234180221, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1328057329234180221, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1328057329234180221, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.5
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328057329234180221, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328057329234180221, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328057329234180221, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328057329234180221, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1493683347074284997, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
       propertyPath: _targetDistance

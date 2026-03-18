@@ -21,6 +21,7 @@ public class PlayerMovement : Movement
     [SerializeField] private float rollFactor = 20f;
     [SerializeField] private float rotationRate = 5.0f;
     [SerializeField] private float pitchFactor = 10f;
+    [SerializeField] private float cameraOffset = 5f;
     //[SerializeField] private float pitchRate = 5.0f;
 
     private float deltaTime = 0f;
@@ -66,7 +67,7 @@ public class PlayerMovement : Movement
         playerShip.transform.localPosition += shipMovePosition;
         clampedPosition = playerShip.transform.localPosition;
         clampedPosition.x = Mathf.Clamp(clampedPosition.x, -xClamp, xClamp);
-        clampedPosition.y = Mathf.Clamp(clampedPosition.y, -yClamp, yClamp);
+        clampedPosition.y = Mathf.Clamp(clampedPosition.y, -yClamp + cameraOffset, yClamp);
         playerShip.transform.localPosition = clampedPosition;
     }
 
