@@ -14,15 +14,21 @@ public class CollisionHandler : MonoBehaviour
     {
         
     }
-
     private void OnTriggerEnter(Collider other)
     {
         HandleTriggerEnter(other);
     }
-
     public virtual void HandleTriggerEnter(Collider other)
     {
         Debug.Log(this.gameObject.name + " collided with " + other.gameObject.name);
+    }
+    
+    // if the class has a trigger, this will be called after HandleTriggerEnter of the other object.
+    // In other words, the other object will handle trigger enter, and call OnTriggerEntered on the 
+    // object containing the trigger.
+    public virtual void TriggerActivated(Collider other)
+    {
+        Debug.Log("Trigger has been entered for: " + this.gameObject.name);
     }
 
     // Handles collision if we have a collider. If not, HandleCollision is called w/ GameObject (see below).

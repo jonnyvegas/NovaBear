@@ -29,7 +29,7 @@ public class EnemyCollisionHandler : CollisionHandler
         other.transform.root.TryGetComponent<CollisionHandler>(out CollisionHandler ch);
         if (ch)
         {
-            ch.HandleTriggerEnter(this.GetComponent<Collider>());
+            ch.TriggerActivated(this.GetComponent<Collider>());
         }
         DestroyAndSpawnVFX();
     }

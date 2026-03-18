@@ -29,6 +29,16 @@ public class PlayerCollisionHandler : CollisionHandler
         DestroyAndSpawnVFX();
     }
 
+    public override void TriggerActivated(Collider other)
+    {
+        base.TriggerActivated(other);
+        other.transform.root.gameObject.TryGetComponent<Enemy>(out Enemy enemyComp);
+        // we ran into an enemy.
+        if(enemyComp)
+        {
+            DestroyAndSpawnVFX();
+        }
+    }
     private void DestroyAndSpawnVFX()
     {
         if (explosionParticle)
