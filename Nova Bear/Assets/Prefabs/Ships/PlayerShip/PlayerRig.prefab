@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 524302779578667239}
   - component: {fileID: 4393156742362040435}
   - component: {fileID: 3160785044585243761}
+  - component: {fileID: 8241159557293257112}
+  - component: {fileID: 1281600393761587822}
+  - component: {fileID: 9091880762371504394}
   m_Layer: 0
   m_Name: PlayerRig
   m_TagString: Untagged
@@ -73,9 +76,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a466fb765750e6d4c921646b02283204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  health: {fileID: 8241159557293257112}
+  collisionHandler: {fileID: 3160785044585243761}
   weapon: {fileID: 4393156742362040435}
   movement: {fileID: 524302779578667239}
-  collisionHandler: {fileID: 3160785044585243761}
 --- !u!114 &524302779578667239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,8 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1a1c5a9b33ad145be7a64311abd673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  playerShip: {fileID: 0}
-  playerControls: {fileID: 0}
+  playerShip: {fileID: 2565811529656738563}
+  playerControls: {fileID: -944628639613478452, guid: e0a3668069dacff4ca53ba03dbba8371, type: 3}
   shipMoveRate: 10
   xClamp: 10
   yClamp: 10
@@ -109,6 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 573f49f4e5be0a94e82cce6ea77826d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerWeapon
+  damage: 25
   _weaponParticleSystems:
   - {fileID: 4065331553552411772}
   - {fileID: 1193476244009819284}
@@ -128,7 +133,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832845b94623db94580c2c2f48d65bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCollisionHandler
-  explosionParticle: {fileID: 0}
+  explosionParticle: {fileID: 5108117917362080907, guid: eb2778f941c6a2e4d8241ec9b27e6a67, type: 3}
+--- !u!114 &8241159557293257112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417700452302481761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030fa0084147cc5459adba9571981f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  healthAmt: 100
+--- !u!65 &1281600393761587822
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417700452302481761}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 15, y: 9, z: 9}
+  m_Center: {x: 0, y: 5, z: 0}
+--- !u!54 &9091880762371504394
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417700452302481761}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1363229165819289096
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,8 +236,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4504604951578574638}
   - component: {fileID: 3969128835762569983}
-  - component: {fileID: 5204299777630996624}
-  - component: {fileID: 6286702274757852879}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Untagged
@@ -227,54 +291,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!65 &5204299777630996624
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2565811529656738563}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 24.50656, y: 9.35791, z: 14.469215}
-  m_Center: {x: 0, y: 7.5, z: 0}
---- !u!54 &6286702274757852879
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2565811529656738563}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &3403290652931617271
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,7 +317,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1328057329234180221}

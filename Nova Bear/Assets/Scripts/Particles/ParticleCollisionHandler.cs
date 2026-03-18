@@ -17,18 +17,19 @@ public class LaserCollisionHandler : CollisionHandler
     private void OnParticleCollision(GameObject other)
     {
         //Debug.Log(this.gameObject.name + " collided with " + other.gameObject.name);
-        CollisionHandler ch = other.GetComponent<CollisionHandler>();
-        
+        CollisionHandler ch = other.transform.root.gameObject.GetComponent<CollisionHandler>();
         if (ch)
         {
-            Collider collider = other.gameObject.GetComponent<Collider>();
+            Collider collider = this.transform.root.gameObject.GetComponent<Collider>();
             if (collider)
             {
+                //Debug.Log("hit");
                 ch.HandleCollision(collider);
             }
             else
             {
-                ch.HandleCollision(other);
+                //Debug.Log("no collider on " + this.transform.root.gameObject.name);
+                ch.HandleCollision(this.transform.root.gameObject);
             }
         }
     }

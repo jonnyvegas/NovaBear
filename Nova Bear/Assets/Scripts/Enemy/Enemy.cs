@@ -1,11 +1,10 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : GameCharacter
 {
-    [SerializeField] private CollisionHandler collisionHandler;
     private void Awake()
     {
-        collisionHandler = gameObject.AddComponent<EnemyCollisionHandler>();
+        SetCollisionHandler(gameObject.AddComponent<EnemyCollisionHandler>());
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

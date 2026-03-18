@@ -25,8 +25,13 @@ public class PlayerCollisionHandler : CollisionHandler
     public override void HandleTriggerEnter(Collider other)
     {
         base.HandleTriggerEnter(other);
-        Debug.Log("Oh no, we blow up.");
-        DestroyAndSpawnVFX();
+        
+        other.transform.root.gameObject.TryGetComponent<CollisionHandler>(out CollisionHandler collisionHandler);
+        if(collisionHandler)
+        {
+            Debug.Log("Oh no, we blow up.");
+            DestroyAndSpawnVFX();
+        }
     }
 
     public override void TriggerActivated(Collider other)

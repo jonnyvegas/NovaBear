@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : GameCharacter
 {
 
     [SerializeField] private Weapon weapon;
     [SerializeField] private Movement movement;
-    [SerializeField] private CollisionHandler collisionHandler;
+    
 
     private void Awake()
     {
@@ -17,9 +17,9 @@ public class Player : MonoBehaviour
         {
             movement = gameObject.AddComponent<PlayerMovement>();
         }
-        if(!collisionHandler)
+        if(!GetCollisionHandler())
         {
-            collisionHandler = gameObject.AddComponent<PlayerCollisionHandler>();
+            SetCollisionHandler(gameObject.AddComponent<PlayerCollisionHandler>());
             Debug.Log("adding player collision handler");
         }
     }
