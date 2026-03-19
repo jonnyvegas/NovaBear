@@ -30,4 +30,10 @@ public class GameCharacter : MonoBehaviour
     {
         return health;
     }
+
+    // Health will call this when it reaches 0. Handle it however from here.
+    public virtual void HandleZeroHealth()
+    {
+        Destroy(this.transform.root.gameObject);
+    }
 }

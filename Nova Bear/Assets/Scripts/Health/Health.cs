@@ -20,7 +20,7 @@ public class Health : MonoBehaviour
         healthAmt += deltaHealth;
         if(healthAmt <= 0.0f)
         {
-            DestroyGameObject();
+            HandleZeroHealth();
         }
     }
 
@@ -29,8 +29,15 @@ public class Health : MonoBehaviour
         return healthAmt;
     }
 
-    public virtual void DestroyGameObject()
+    // Pass up to the owner of this (Health).
+    private void HandleZeroHealth()
     {
-        Destroy(this.transform.root.gameObject);
+        this.transform.root.gameObject.TryGetComponent<GameCharacter>(out GameCharacter gc);
+        if(gc)
+        {
+            gc.HandleZeroHealth();
+        }
+
+        
     }
 }
