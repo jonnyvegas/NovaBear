@@ -273,6 +273,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8681359637709916129, guid: 5230b3e3dbb6565438be6c787e96b97e, type: 3}
+      propertyPath: zeroHealthEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1880816650}
+    - target: {fileID: 8681359637709916129, guid: 5230b3e3dbb6565438be6c787e96b97e, type: 3}
+      propertyPath: zeroHealthEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateScore
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -329,6 +337,14 @@ PrefabInstance:
     - target: {fileID: 8626909624401797004, guid: e61999e7e3173844bbbb8cbc190f5ae2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8681359637709916129, guid: e61999e7e3173844bbbb8cbc190f5ae2, type: 3}
+      propertyPath: zeroHealthEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1880816650}
+    - target: {fileID: 8681359637709916129, guid: e61999e7e3173844bbbb8cbc190f5ae2, type: 3}
+      propertyPath: zeroHealthEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateScore
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -736,6 +752,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8681359637709916129, guid: 0ba539ff4ddd70547bc9532ad0788c38, type: 3}
+      propertyPath: zeroHealthEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1880816650}
+    - target: {fileID: 8681359637709916129, guid: 0ba539ff4ddd70547bc9532ad0788c38, type: 3}
+      propertyPath: zeroHealthEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateScore
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -877,6 +901,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8681359637709916129, guid: 92385171194d0d7458e3b8bb38e030df, type: 3}
+      propertyPath: zeroHealthEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1880816650}
+    - target: {fileID: 8681359637709916129, guid: 92385171194d0d7458e3b8bb38e030df, type: 3}
+      propertyPath: zeroHealthEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateScore
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -975,6 +1007,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1880816649
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 659932214989060539, guid: 8cb8afb61cabf89438b82d5abc2f66c5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 327.72974
+      objectReference: {fileID: 0}
+    - target: {fileID: 659932214989060539, guid: 8cb8afb61cabf89438b82d5abc2f66c5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -68.766014
+      objectReference: {fileID: 0}
+    - target: {fileID: 659932214989060539, guid: 8cb8afb61cabf89438b82d5abc2f66c5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 240.28548
+      objectReference: {fileID: 0}
+    - target: {fileID: 659932214989060539, guid: 8cb8afb61cabf89438b82d5abc2f66c5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 659932214989060539, guid: 8cb8afb61cabf89438b82d5abc2f66c5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 659932214989060539, guid: 8cb8afb61cabf89438b82d5abc2f66c5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 659932214989060539, guid: 8cb8afb61cabf89438b82d5abc2f66c5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 659932214989060539, guid: 8cb8afb61cabf89438b82d5abc2f66c5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 659932214989060539, guid: 8cb8afb61cabf89438b82d5abc2f66c5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 659932214989060539, guid: 8cb8afb61cabf89438b82d5abc2f66c5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7722572880712091217, guid: 8cb8afb61cabf89438b82d5abc2f66c5, type: 3}
+      propertyPath: m_Name
+      value: Scoreboard
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8cb8afb61cabf89438b82d5abc2f66c5, type: 3}
+--- !u!114 &1880816650 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8975751132046998553, guid: 8cb8afb61cabf89438b82d5abc2f66c5, type: 3}
+  m_PrefabInstance: {fileID: 1880816649}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d9d1a49f12b02c48ad22fad25273427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Scoreboard
 --- !u!95 &1912912557 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 7231915902217537977, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
@@ -1047,6 +1147,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8681359637709916129, guid: bc819b7bf08a3b841b33e6c0cc8a9d54, type: 3}
+      propertyPath: zeroHealthEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1880816650}
+    - target: {fileID: 8681359637709916129, guid: bc819b7bf08a3b841b33e6c0cc8a9d54, type: 3}
+      propertyPath: zeroHealthEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateScore
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1117,10 +1225,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseEnemy
       objectReference: {fileID: 0}
-    - target: {fileID: 3910020286132257391, guid: ba93e65c956d3f0448b5dd0fb9e3329b, type: 3}
-      propertyPath: healthAmt
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 7462092594482794835, guid: ba93e65c956d3f0448b5dd0fb9e3329b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 233.7
@@ -1161,6 +1265,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7515451892281592126, guid: ba93e65c956d3f0448b5dd0fb9e3329b, type: 3}
+      propertyPath: zeroHealthEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1880816650}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1353,3 +1461,4 @@ SceneRoots:
   - {fileID: 1011758789}
   - {fileID: 1822056415}
   - {fileID: 225186465}
+  - {fileID: 1880816649}

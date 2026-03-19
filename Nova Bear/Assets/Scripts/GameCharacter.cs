@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameCharacter : MonoBehaviour
 {
     [SerializeField] private Health health;
     [SerializeField] private CollisionHandler collisionHandler;
+    public UnityEvent zeroHealthEvent;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -32,8 +34,10 @@ public class GameCharacter : MonoBehaviour
     }
 
     // Health will call this when it reaches 0. Handle it however from here.
+    // This will call OnDestroy of this item.
     public virtual void HandleZeroHealth()
     {
+        zeroHealthEvent.Invoke();
         Destroy(this.transform.root.gameObject);
     }
 }

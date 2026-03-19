@@ -163,6 +163,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   health: {fileID: 3910020286132257391}
   collisionHandler: {fileID: 3908567812903636068}
+  zeroHealthEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Scoreboard, Assembly-CSharp
+        m_MethodName: UpdateScore
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3908567812903636068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030fa0084147cc5459adba9571981f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  healthAmt: 50
+  healthAmt: 10
 --- !u!1 &6687226865398299702
 GameObject:
   m_ObjectHideFlags: 0
