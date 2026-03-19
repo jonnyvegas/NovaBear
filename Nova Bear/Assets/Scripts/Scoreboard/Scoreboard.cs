@@ -1,8 +1,10 @@
+using TMPro;
 using UnityEngine;
 
 public class Scoreboard : MonoBehaviour
 {
-    private float score = 0f;
+    private int score = 0;
+    [SerializeField] private TMP_Text scoreText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,9 +17,10 @@ public class Scoreboard : MonoBehaviour
         
     }
 
-    public void UpdateScore(float deltaScore)
+    public void UpdateScore(int deltaScore)
     {
         score += deltaScore;
-        Debug.Log("Current score: " + score);
+        scoreText.text = score.ToString("D5");
+        //Debug.Log("Current score: " + score);
     }
 }
