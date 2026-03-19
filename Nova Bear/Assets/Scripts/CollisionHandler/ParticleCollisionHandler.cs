@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LaserCollisionHandler : CollisionHandler
+public class ParticleCollisionHandler : CollisionHandler
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,10 +17,10 @@ public class LaserCollisionHandler : CollisionHandler
     private void OnParticleCollision(GameObject other)
     {
         //Debug.Log(this.gameObject.name + " collided with " + other.gameObject.name);
-        CollisionHandler ch = other.transform.root.gameObject.GetComponent<CollisionHandler>();
+        other.gameObject.TryGetComponent(out CollisionHandler ch);
         if (ch)
         {
-            Collider collider = this.transform.root.gameObject.GetComponent<Collider>();
+            this.gameObject.transform.root.TryGetComponent(out Collider collider);
             if (collider)
             {
                 //Debug.Log("hit");

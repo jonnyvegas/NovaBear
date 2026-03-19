@@ -3,6 +3,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] private float healthAmt = 1.0f;
+    private bool isDead = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -32,12 +33,16 @@ public class Health : MonoBehaviour
     // Pass up to the owner of this (Health).
     private void HandleZeroHealth()
     {
-        this.transform.root.gameObject.TryGetComponent<GameCharacter>(out GameCharacter gc);
-        if(gc)
+        this.TryGetComponent(out GameCharacter gc);
+        if (gc && !isDead)
         {
+            isDead = true;
             gc.HandleZeroHealth();
         }
+    }
 
-        
+    public bool GetIsDead()
+    {
+        return isDead;
     }
 }

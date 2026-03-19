@@ -2,16 +2,12 @@ using UnityEngine;
 
 public class Player : GameCharacter
 {
-
-    [SerializeField] private Weapon weapon;
     [SerializeField] private Movement movement;
-    
-
     private void Awake()
     {
-        if (!weapon)
+        if (!GetWeapon())
         {
-            weapon = gameObject.AddComponent<PlayerWeapon>();
+            SetWeapon(gameObject.AddComponent<PlayerWeapon>());
         }
         if(!movement)
         {

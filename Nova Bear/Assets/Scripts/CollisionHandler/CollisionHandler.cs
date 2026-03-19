@@ -28,7 +28,7 @@ public class CollisionHandler : MonoBehaviour
     // object containing the trigger.
     public virtual void TriggerActivated(Collider other)
     {
-        Debug.Log("Trigger has been entered for: " + this.gameObject.name);
+        Debug.Log("Trigger has been activated for: " + this.gameObject.name);
     }
 
     // Handles collision if we have a collider. If not, HandleCollision is called w/ GameObject (see below).

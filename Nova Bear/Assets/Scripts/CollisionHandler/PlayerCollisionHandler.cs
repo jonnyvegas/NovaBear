@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerCollisionHandler : CollisionHandler
@@ -26,8 +27,7 @@ public class PlayerCollisionHandler : CollisionHandler
     {
         base.HandleTriggerEnter(other);
         
-        other.transform.root.gameObject.TryGetComponent<CollisionHandler>(out CollisionHandler collisionHandler);
-        if(collisionHandler)
+        if(other.transform.root.gameObject.TryGetComponent(out CollisionHandler collisionHandler))
         {
             Debug.Log("Oh no, we blow up.");
             DestroyAndSpawnVFX();
@@ -37,10 +37,10 @@ public class PlayerCollisionHandler : CollisionHandler
     public override void TriggerActivated(Collider other)
     {
         base.TriggerActivated(other);
-        other.transform.root.gameObject.TryGetComponent<Enemy>(out Enemy enemyComp);
-        // we ran into an enemy.
-        if(enemyComp)
+        Debug.Log(other.gameObject.name);
+        if(other.gameObject.TryGetComponent(out Enemy enemyComp))
         {
+            Debug.Log("hit enemy");
             DestroyAndSpawnVFX();
         }
     }

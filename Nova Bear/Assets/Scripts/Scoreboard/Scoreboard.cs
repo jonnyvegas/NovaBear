@@ -20,7 +20,7 @@ public class Scoreboard : MonoBehaviour
     public void UpdateScore(int deltaScore)
     {
         score += deltaScore;
-        scoreText.text = score.ToString("D5");
+        scoreText.text = "Score: " + score.ToString("D6");
         //Debug.Log("Current score: " + score);
     }
 }

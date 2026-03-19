@@ -5,6 +5,7 @@ public class GameCharacter : MonoBehaviour
 {
     [SerializeField] private Health health;
     [SerializeField] private CollisionHandler collisionHandler;
+    [SerializeField] private Weapon weapon;
     public UnityEvent zeroHealthEvent;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,6 +39,16 @@ public class GameCharacter : MonoBehaviour
     public virtual void HandleZeroHealth()
     {
         zeroHealthEvent.Invoke();
-        Destroy(this.transform.root.gameObject);
+        Destroy(this.gameObject);
+    }
+
+    public Weapon GetWeapon()
+    {
+        return weapon;
+    }
+
+    public void SetWeapon(Weapon newWeapon)
+    {
+        weapon = newWeapon;
     }
 }

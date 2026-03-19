@@ -18,14 +18,12 @@ public class EnemyCollisionHandler : CollisionHandler
     public override void HandleCollision(Collider other)
     {
         base.HandleCollision(other);
-        other.transform.root.gameObject.TryGetComponent<Weapon>(out Weapon weapon);
-        
-        if (weapon)
-        {
-            this.transform.root.TryGetComponent<Health>(out Health health);
+        if(other.transform.root.gameObject.TryGetComponent<Weapon>(out Weapon weapon))
+        { 
+            Debug.Log("hit");
+            this.TryGetComponent(out Health health);
             if (health)
             {
-                
                 health.UpdateHealth(weapon.GetDamage() * -1);
                 if(health.GetHealth() <= 0f)
                 {
@@ -40,12 +38,11 @@ public class EnemyCollisionHandler : CollisionHandler
     {
         base.HandleTriggerEnter(other);
         //Debug.Log("blow up?");
-        other.transform.root.TryGetComponent<CollisionHandler>(out CollisionHandler ch);
-        if (ch)
-        {
+        if(other.transform.root.TryGetComponent(out CollisionHandler ch))
+        { 
             ch.TriggerActivated(this.GetComponent<Collider>());
         }
-        //DestroyAndSpawnVFX();
+        DestroyAndSpawnVFX();
     }
 
     private void SpawnVFX()
@@ -55,5 +52,11 @@ public class EnemyCollisionHandler : CollisionHandler
             Instantiate(explosionParticleSys, transform.position, Quaternion.identity);
         }
         //Destroy(this.gameObject);
+    }
+
+    private void DestroyAndSpawnVFX()
+    {
+        SpawnVFX();
+        Destroy(this.gameObject);
     }
 }
