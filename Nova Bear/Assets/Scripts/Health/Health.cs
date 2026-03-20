@@ -30,6 +30,15 @@ public class Health : MonoBehaviour
         return healthAmt;
     }
 
+    public void SetHealth(float newHealth)
+    {
+        healthAmt = newHealth;
+        if(healthAmt <= 0f)
+        {
+            HandleZeroHealth();
+        }
+    }
+
     // Pass up to the owner of this (Health).
     private void HandleZeroHealth()
     {

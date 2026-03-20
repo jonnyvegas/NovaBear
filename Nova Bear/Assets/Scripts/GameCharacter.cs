@@ -39,7 +39,7 @@ public class GameCharacter : MonoBehaviour
     public virtual void HandleZeroHealth()
     {
         zeroHealthEvent.Invoke();
-        Destroy(this.gameObject);
+        //DestroyGameCharacter();
     }
 
     public Weapon GetWeapon()
@@ -50,5 +50,10 @@ public class GameCharacter : MonoBehaviour
     public void SetWeapon(Weapon newWeapon)
     {
         weapon = newWeapon;
+    }
+
+    public virtual void DestroyGameCharacter()
+    {
+        Destroy(this.gameObject);
     }
 }

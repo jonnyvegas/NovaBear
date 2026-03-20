@@ -30,4 +30,10 @@ public class Player : GameCharacter
     {
         
     }
+
+    public override void HandleZeroHealth()
+    {
+        base.HandleZeroHealth();
+        DestroyGameCharacter();
+    }
 }

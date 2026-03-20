@@ -17,4 +17,10 @@ public class Enemy : GameCharacter
     {
         
     }
+
+    public override void HandleZeroHealth()
+    {
+        base.HandleZeroHealth();
+        DestroyGameCharacter();
+    }
 }

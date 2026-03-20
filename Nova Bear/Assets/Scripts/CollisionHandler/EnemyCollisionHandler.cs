@@ -42,6 +42,9 @@ public class EnemyCollisionHandler : CollisionHandler
         { 
             ch.TriggerActivated(this.GetComponent<Collider>());
         }
+        // Something entered us but we don't want to set the health to 0 and trigger the
+        // on zero health event because we technically didn't lose health, we
+        // had a trigger enter our collision.
         DestroyAndSpawnVFX();
     }
 
@@ -57,6 +60,9 @@ public class EnemyCollisionHandler : CollisionHandler
     private void DestroyAndSpawnVFX()
     {
         SpawnVFX();
-        Destroy(this.gameObject);
+        if (this.TryGetComponent(out GameCharacter gameCharacter))
+        {
+            gameCharacter.DestroyGameCharacter();
+        }
     }
 }
