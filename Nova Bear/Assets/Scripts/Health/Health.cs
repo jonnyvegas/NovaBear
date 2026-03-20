@@ -39,7 +39,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    // Pass up to the owner of this (Health).
+    // Pass up to the owner of this (GameCharacter).
     private void HandleZeroHealth()
     {
         this.TryGetComponent(out GameCharacter gc);
