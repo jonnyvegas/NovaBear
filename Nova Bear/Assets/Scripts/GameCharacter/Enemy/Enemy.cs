@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class Enemy : GameCharacter
     private GameCharacter gameChar;
     private void Awake()
     {
+        //BaseGCDecorator gcDec;
         GameCharacter tempGameChar = this;
         description = "Enemy";
         SetCollisionHandler(gameObject.AddComponent<EnemyCollisionHandler>());
@@ -15,6 +17,8 @@ public class Enemy : GameCharacter
         tempGameChar = gameChar;
         gameChar = this.AddComponent<HealOnExplodeDecorator>();
         gameChar.SetGameCharRef(tempGameChar);
+        //BaseGCDecorator dec = decorators[0];
+        //gameChar = gameObject.AddComponent(typeof(ExplosionDecorator)) as ExplosionDecorator;
     }
 
     public override void SetGameCharRef(GameCharacter character)
