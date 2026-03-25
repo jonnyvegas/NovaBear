@@ -27,7 +27,8 @@ public class EnemyCollisionHandler : CollisionHandler
                 health.UpdateHealth(weapon.GetDamage() * -1);
                 if(health.GetHealth() <= 0f)
                 {
-                    SpawnVFX();
+                    //SpawnVFX();
+                    DestroyAndSpawnVFX();
                 }
             }
         }
@@ -59,10 +60,10 @@ public class EnemyCollisionHandler : CollisionHandler
 
     private void DestroyAndSpawnVFX()
     {
-        SpawnVFX();
+        //SpawnVFX();
         if (this.TryGetComponent(out GameCharacter gameCharacter))
         {
-            gameCharacter.DestroyGameCharacter();
+            gameCharacter.GetGameCharRef().DestroyGameCharacter();
         }
     }
 }

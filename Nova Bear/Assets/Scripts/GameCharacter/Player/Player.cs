@@ -34,6 +34,21 @@ public class Player : GameCharacter
     public override void HandleZeroHealth()
     {
         base.HandleZeroHealth();
-        DestroyGameCharacter();
+        //DestroyGameCharacter();
+    }
+
+    public override void DestroyGameCharacter()
+    {
+        Debug.Log("Destroy player");
+    }
+
+    public override void SetGameCharRef(GameCharacter character)
+    {
+        
+    }
+
+    public override GameCharacter GetGameCharRef()
+    {
+        return null;
     }
 }

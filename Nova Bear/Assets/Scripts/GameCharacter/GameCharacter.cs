@@ -1,12 +1,18 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class GameCharacter : MonoBehaviour
+public abstract class GameCharacter : MonoBehaviour
 {
+    protected string description;
     [SerializeField] private Health health;
     [SerializeField] private CollisionHandler collisionHandler;
     [SerializeField] private Weapon weapon;
     public UnityEvent zeroHealthEvent;
+
+    private void Awake()
+    {
+        description = "GameCharacter";
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -52,8 +58,12 @@ public class GameCharacter : MonoBehaviour
         weapon = newWeapon;
     }
 
-    public virtual void DestroyGameCharacter()
+    public string GetDescription()
     {
-        Destroy(this.gameObject);
+        return description;
     }
+
+    public abstract void SetGameCharRef(GameCharacter character);
+    public abstract GameCharacter GetGameCharRef();
+    public abstract void DestroyGameCharacter();
 }
