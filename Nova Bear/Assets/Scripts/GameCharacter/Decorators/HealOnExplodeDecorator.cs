@@ -15,7 +15,7 @@ public class HealOnExplodeDecorator : BaseGCDecorator
 
     public override void DestroyGameCharacter()
     {
-        Debug.Log("Destroy and heal");
+        //Debug.Log("Destroy and heal");
         character.DestroyGameCharacter();
     }
 

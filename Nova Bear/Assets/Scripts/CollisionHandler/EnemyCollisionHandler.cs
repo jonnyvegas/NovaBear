@@ -3,17 +3,6 @@ using UnityEngine;
 public class EnemyCollisionHandler : CollisionHandler
 {
     [SerializeField] private GameObject explosionParticleSys;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public override void HandleCollision(Collider other)
     {

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Player : GameCharacter
 {
+    GameCharacter gameCharacter;
     [SerializeField] private Movement movement;
     private void Awake()
     {
@@ -16,19 +17,8 @@ public class Player : GameCharacter
         if(!GetCollisionHandler())
         {
             SetCollisionHandler(gameObject.AddComponent<PlayerCollisionHandler>());
-            Debug.Log("adding player collision handler");
+            //Debug.Log("adding player collision handler");
         }
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public override void HandleZeroHealth()
@@ -44,11 +34,11 @@ public class Player : GameCharacter
 
     public override void SetGameCharRef(GameCharacter character)
     {
-        
+        this.gameCharacter = character;
     }
 
     public override GameCharacter GetGameCharRef()
     {
-        return null;
+        return gameCharacter;
     }
 }

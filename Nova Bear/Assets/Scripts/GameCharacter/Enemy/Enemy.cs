@@ -27,18 +27,6 @@ public class Enemy : GameCharacter
         return gameChar;
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public override void HandleZeroHealth()
     {
         base.HandleZeroHealth();
@@ -47,6 +35,7 @@ public class Enemy : GameCharacter
 
     public override void DestroyGameCharacter()
     {
-        Debug.Log("Destroy Enemy");
+        //Debug.Log("Destroy Enemy");
+        Destroy(this.gameObject);
     }
 }
