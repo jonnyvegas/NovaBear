@@ -1838,7 +1838,7 @@ PrefabInstance:
       objectReference: {fileID: 5108117917362080907, guid: eb2778f941c6a2e4d8241ec9b27e6a67, type: 3}
     - target: {fileID: 4393156742362040435, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
       propertyPath: _targetDistance
-      value: 300
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 4393156742362040435, guid: 65252b37d91b6cb45a4811488d1bf329, type: 3}
       propertyPath: _crosshairTransform

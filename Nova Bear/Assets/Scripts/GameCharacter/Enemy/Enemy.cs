@@ -1,24 +1,33 @@
 using System;
+using System.Diagnostics;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class Enemy : GameCharacter
 {
     private GameCharacter gameChar;
+    [SerializeField] private BaseGCDecorator[] decorators;
     private void Awake()
     {
-        //BaseGCDecorator gcDec;
-        GameCharacter tempGameChar = this;
         description = "Enemy";
         SetCollisionHandler(gameObject.AddComponent<EnemyCollisionHandler>());
-        gameChar = this;
-        gameChar = this.AddComponent<ExplosionDecorator>();
-        gameChar.SetGameCharRef(tempGameChar);
-        tempGameChar = gameChar;
-        gameChar = this.AddComponent<HealOnExplodeDecorator>();
-        gameChar.SetGameCharRef(tempGameChar);
-        //BaseGCDecorator dec = decorators[0];
-        //gameChar = gameObject.AddComponent(typeof(ExplosionDecorator)) as ExplosionDecorator;
+        SetupDecorators();
+    }
+
+    void SetupDecorators()
+    {
+        Type theType = null;
+        GameCharacter tempGameChar = this;
+        foreach (BaseGCDecorator decorator in decorators)
+        {
+            theType = decorator.GetType();
+            gameChar = gameObject.AddComponent(theType) as BaseGCDecorator;
+            gameChar.SetGameCharRef(tempGameChar);
+            tempGameChar = gameChar;
+            
+            //Debug.Log("Adding " + decorator.GetType().Name);
+        }
     }
 
     public override void SetGameCharRef(GameCharacter character)
