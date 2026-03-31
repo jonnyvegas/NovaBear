@@ -30,7 +30,7 @@ public class PlayerCollisionHandler : CollisionHandler
         if(other.transform.root.gameObject.TryGetComponent(out CollisionHandler collisionHandler))
         {
             Debug.Log("Oh no, we blow up.");
-            DestroyAndSpawnVFX();
+            DestroyAndSpawnVFX();   
         }
     }
 
@@ -42,6 +42,14 @@ public class PlayerCollisionHandler : CollisionHandler
         {
             Debug.Log("hit enemy");
             DestroyAndSpawnVFX();
+            if (this.gameObject.TryGetComponent(out Health health))
+            {
+                health.SetHealth(0);
+            }
+            else
+            {
+                Debug.Log("didnt get health");
+            }
         }
     }
     private void DestroyAndSpawnVFX()
